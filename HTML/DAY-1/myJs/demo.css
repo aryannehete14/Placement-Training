@@ -1,0 +1,23 @@
+body {
+    background: darkmagenta;
+    color: lightgoldenrodyellow;
+    text-align: center;
+}
+
+.box {
+    margin: 40px auto;
+    width: 60%;
+}
+
+h2, h3, p {
+    display: inline-block;
+    padding: 8px;
+    margin: 10px auto;
+}
+
+button {
+    display: block;
+    margin: 5px auto;
+    padding: 8px 15px;
+    cursor: pointer;
+}
