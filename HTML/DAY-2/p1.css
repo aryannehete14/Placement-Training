@@ -1,0 +1,28 @@
+body {
+    background: linear-gradient(
+        to left,
+        rgb(220, 199, 199),
+        rgb(168, 168, 190),
+        rgb(120, 230, 120)
+    );
+}
+
+h1 {
+    text-align: center;
+    background-color: black;
+    color: yellow;
+}
+
+button {
+    margin-left: 45%;
+    width: 150px;
+    height: 30px;
+    font-size: 22px;
+    border-radius: 20px;
+}
+
+button:hover {
+    background: black;
+    color: lightcyan;
+    cursor: pointer;
+}
