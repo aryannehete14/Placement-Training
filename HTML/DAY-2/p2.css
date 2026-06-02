@@ -1,0 +1,16 @@
+body{
+    text-align: center;
+
+}
+
+div{
+    height: 200px;
+    background: red;
+    width: 200px;
+    margin: 0 auto;
+    border-radius: 50%;
+}
+
+ button{
+    margin-top: 20px;
+ }
