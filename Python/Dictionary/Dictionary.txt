@@ -1,1 +1,6 @@
+Characteristics  
 
+- Ordered Collection of key value pairs (Python 3.7 onwards)
+- Unordered Collection of key value pairs (Python 3.6 and earlier)
+- Dictionaries cannot have two items with the same key
+- Mutable
