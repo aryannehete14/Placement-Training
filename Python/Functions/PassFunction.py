@@ -1,0 +1,10 @@
+def my_function():
+    pass 
+
+for i in range(10):
+    if i % 2 == 0:
+        print(i)
+    else:
+        pass
+
+my_function()
