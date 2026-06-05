@@ -1,0 +1,7 @@
+Characteristics
+
+- Ordered - Tuples maintain order of elements
+- Immutable - Once created, elements cannot be changed
+- Allows duplicates
+- Heterogeneous - Can store different data types
+- Indexing and sliciing - Supports accessing elements using Indexing and sliciing
