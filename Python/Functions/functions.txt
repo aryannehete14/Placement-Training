@@ -1,3 +1,4 @@
 Important Questions 
 
 - Difference between return and print 
+- Difference between *args and **kwargs
