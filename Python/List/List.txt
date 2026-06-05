@@ -1,0 +1,12 @@
+Characteristics
+
+- List is mutable
+- List can store different data types
+- List is ordered
+- Denoted by []
+- Allows duplicate elements
+
+Imp. Questions - 
+
+Q. How to add elements in List
+Q. Difference between append & insert & extend
