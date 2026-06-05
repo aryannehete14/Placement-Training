@@ -1,1 +1,8 @@
+# Important Question
+- What is set?
+- Can it store duplicate values?
+- How to define empty set?
 
+- Unordered
+- Unchangeable
+- Duplicates not allowed
