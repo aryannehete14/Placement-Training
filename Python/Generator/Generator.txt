@@ -1,0 +1,4 @@
+- A generator in Python is a function that uses the yield keyword to produce values one at a time instead of returning all values at once.
+- The function ends after the first return.
+- The function pauses after yield 10 and resumes when next() is called again.
+- A generator is a special function that uses yield to produce values one at a time. It remembers its state between calls and is more memory-efficient than storing all values in a list.
