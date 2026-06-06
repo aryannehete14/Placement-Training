@@ -1,0 +1,11 @@
+- File Handling in python allows you to read, write, append, and modify files stored on your system.
+- Provides built-in functions 
+- stored data permanently 
+'r' - read (default)
+'w' - write (overwrite file)
+'a' - append (adds to the end)
+'x' - create new file (error if already exists)
+'b' - binary mode
+'t' - text mode
+
+- File does not exist is file not present
