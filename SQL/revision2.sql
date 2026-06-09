@@ -169,3 +169,87 @@ GROUP BY
 ORDER BY
     TOTAL_REVENUE DESC
 FETCH FIRST 10 ROWS ONLY;
+
+
+
+-- The Marketing Team is planning a customer acquisition campaign. They believe there are customers in the system who have registered but have never contributed to business revenue. They want to identify such customers so that special introductory offers can be designed for them. Prepare a report that helps the marketing team identify these customers and understand where they belong geographically.
+
+SELECT
+    C.CUST_ID,
+    C.CUST_FIRST_NAME,
+    C.CUST_LAST_NAME,
+    C.CUST_CITY,
+    CO.COUNTRY_NAME
+FROM
+    SH.CUSTOMERS C
+    LEFT JOIN SH.SALES     S ON C.CUST_ID = S.CUST_ID
+    JOIN SH.COUNTRIES CO ON C.COUNTRY_ID = CO.COUNTRY_ID
+WHERE
+    S.CUST_ID IS NULL;
+
+-- The Product Management Team is conducting a portfolio review. Over the years, several products have been introduced into the catalog. Some products may never have generated any business despite being available for sale. Prepare a report that helps management identify such products so that decisions regarding inventory planning, product retirement, or promotional campaigns can be taken.
+
+SELECT
+    PROD_ID,
+    PROD_NAME,
+    PROD_CATEGORY,
+    PROD_LIST_PRICE
+FROM
+    SH.PRODUCTS
+WHERE
+    PROD_ID NOT IN (
+        SELECT
+            PROD_ID
+        FROM
+            SH.SALES
+    );
+-- The Sales Director wants to evaluate the effectiveness of different sales channels. The organization uses multiple channels such as internet sales, direct sales, partners, and catalog sales. Management wants to understand which channels are contributing the most to business performance and which channels require improvement. Prepare a channel performance report suitable for presentation in a management review meeting.
+SELECT
+    CH.CHANNEL_DESC,
+    SUM(S.AMOUNT_SOLD)   AS TOTAL_SALES,
+    SUM(S.QUANTITY_SOLD) AS TOTAL_QUANTITY
+FROM
+         SH.SALES S
+    JOIN SH.CHANNELS CH ON S.CHANNEL_ID = CH.CHANNEL_ID
+GROUP BY
+    CH.CHANNEL_DESC
+ORDER BY
+    TOTAL_SALES DESC;
+
+-- The Global Expansion Team is reviewing the company's international footprint. Management wants to understand customer penetration across different countries. They are particularly interested in identifying countries where customer presence is weak or completely absent, as these locations may represent potential growth opportunities. Prepare an analysis that helps management compare customer distribution across countries.
+SELECT
+    CO.COUNTRY_NAME,
+    COUNT(C.CUST_ID) AS TOTAL_CUSTOMERS
+FROM
+    SH.COUNTRIES CO
+    LEFT JOIN SH.CUSTOMERS C ON CO.COUNTRY_ID = C.COUNTRY_ID
+GROUP BY
+    CO.COUNTRY_NAME
+ORDER BY
+    TOTAL_CUSTOMERS DESC;
+
+-- The Marketing Department spends significant budgets on promotional campaigns. Senior management wants to evaluate whether these promotional investments are producing meaningful business results. Only campaigns that have generated substantial business impact should be highlighted for executive review. Prepare a report that helps management evaluate the effectiveness of promotions.
+SELECT
+    P.PROMO_NAME,
+    SUM(S.AMOUNT_SOLD) AS TOTAL_SALES
+FROM
+         SH.SALES S
+    JOIN SH.PROMOTIONS P ON S.PROMO_ID = P.PROMO_ID
+GROUP BY
+    P.PROMO_NAME
+HAVING
+    SUM(S.AMOUNT_SOLD) > 100000
+ORDER BY
+    TOTAL_SALES DESC;
+
+-- The Chief Revenue Officer wants to understand long-term business performance trends. Instead of looking at revenue in isolation, management wants to compare business performance year-over-year and understand whether revenue is improving or declining compared to previous years. Prepare an analytical report that highlights these trends.
+SELECT
+    T.CALENDAR_YEAR,
+    SUM(S.AMOUNT_SOLD) AS TOTAL_REVENUE
+FROM
+         SH.SALES S
+    JOIN SH.TIMES T ON S.TIME_ID = T.TIME_ID
+GROUP BY
+    T.CALENDAR_YEAR
+ORDER BY
+    T.CALENDAR_YEAR;
